@@ -1,6 +1,5 @@
 package com.company.maisprati.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -18,8 +17,8 @@ public class Aluno extends Pessoa implements Serializable {
 
     private double notaFinal;
 
-    public Aluno(String nome, String telefone, Date dataNascimento, Date dataCadastro, Date ultimaAlteracao, double notaFinal) {
-        super(nome, telefone, dataNascimento, dataCadastro, ultimaAlteracao);
+    public Aluno(Integer id, String nome, String telefone, Date dataNascimento, Date dataCadastro, Date ultimaAlteracao, double notaFinal) {
+        super(id, nome, telefone, dataNascimento, dataCadastro, ultimaAlteracao);
         this.notaFinal = notaFinal;
     }
 
