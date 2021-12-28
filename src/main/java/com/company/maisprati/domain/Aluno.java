@@ -1,16 +1,18 @@
 package com.company.maisprati.domain;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.Date;
 
-@Getter
-@Setter
-@RequiredArgsConstructor
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 public class Aluno extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;

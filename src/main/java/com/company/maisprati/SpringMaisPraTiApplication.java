@@ -28,8 +28,8 @@ public class SpringMaisPraTiApplication implements CommandLineRunner{
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-        Aluno aluno = new Aluno(null, "Diego", "51998647487", sdf.parse("05/03/1990"), sdf.parse("28/12/2021 17:00"), null, 8.0);
-        Pessoa pessoa = new Pessoa(null, "Michelle", "51998110343", sdf.parse("13/02/1988"), sdf.parse("28/12/2021 17:01"), null);
+        Aluno aluno = new Aluno(null, "Diego", "51998647487", sdf.parse("05/03/1990"), sdf.parse("28/12/2021"), sdf.parse("28/12/2021"), 8.0);
+        Pessoa pessoa = new Pessoa(null, "Michelle", "51998110343", sdf.parse("13/02/1988"), sdf.parse("28/12/2021"), sdf.parse("28/12/2021"));
 
         pessoaRepository.saveAll(Arrays.asList(aluno,pessoa));
 
