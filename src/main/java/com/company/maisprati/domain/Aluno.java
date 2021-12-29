@@ -1,6 +1,7 @@
 package com.company.maisprati.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.Date;
 public class Aluno extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @JsonProperty("nota_final")
     private double notaFinal;
 
     public Aluno(Integer id, String nome, String telefone, Date dataNascimento, Date dataCadastro, Date ultimaAlteracao, double notaFinal) {

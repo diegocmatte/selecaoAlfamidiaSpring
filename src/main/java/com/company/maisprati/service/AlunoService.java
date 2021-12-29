@@ -7,6 +7,7 @@ import com.company.maisprati.repository.AlunoRepository;
 import com.company.maisprati.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.Optional;
@@ -22,6 +23,7 @@ public class AlunoService {
         return aluno.orElseThrow(() -> new ObjectNotFoundException("Aluno não encontrado! Id: " + id + ", Tipo: " + Aluno.class.getName()));
     }
 
+    @Transactional
     public Aluno insert(Aluno obj){
         obj.setId(null);
         obj = alunoRepository.save(obj);

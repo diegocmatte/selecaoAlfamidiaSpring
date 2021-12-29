@@ -20,7 +20,7 @@ public class PessoaService {
 
     public Pessoa buscar(Integer id){
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
-        return pessoa.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Pessoa.class.getName()));
+        return pessoa.orElseThrow(() -> new ObjectNotFoundException("Pessoa não encontrada! Id: " + id + ", Tipo: " + Pessoa.class.getName()));
     }
 
     public Pessoa fromDTO(PessoaDTO pessoa){

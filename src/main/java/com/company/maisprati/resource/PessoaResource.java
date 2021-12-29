@@ -22,11 +22,19 @@ public class PessoaResource {
     @Autowired
     private PessoaService pessoaService;
 
+    @Autowired
+    private AlunoResource alunoResource;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> find(@PathVariable Integer id){
         Pessoa pessoa = pessoaService.buscar(id);
-        return ResponseEntity.ok(pessoa);
+        if(pessoa instanceof Aluno){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("URL errada!");
+        } else {
+            return ResponseEntity.ok(pessoa);
+        }
     }
 
     @RequestMapping(method = RequestMethod.POST)
