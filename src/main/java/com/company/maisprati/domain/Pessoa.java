@@ -25,13 +25,9 @@ public class Pessoa implements Serializable {
 
     private String telefone;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataNascimento;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataCadastro;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date ultimaAlteracao;
-
 }

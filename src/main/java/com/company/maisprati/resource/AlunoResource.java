@@ -1,12 +1,10 @@
 package com.company.maisprati.resource;
 
-
 import com.company.maisprati.domain.Aluno;
-import com.company.maisprati.domain.Pessoa;
-import com.company.maisprati.dto.PessoaNewDTO;
-import com.company.maisprati.service.PessoaService;
+import com.company.maisprati.dto.AlunoNewDTO;
+import com.company.maisprati.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,23 +14,22 @@ import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/pessoas")
-public class PessoaResource {
+@RequestMapping(value = "/alunos")
+public class AlunoResource {
 
     @Autowired
-    private PessoaService pessoaService;
-
+    private AlunoService alunoService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> find(@PathVariable Integer id){
-        Pessoa pessoa = pessoaService.buscar(id);
-        return ResponseEntity.ok(pessoa);
+        Aluno aluno = alunoService.buscar(id);
+        return ResponseEntity.ok(aluno);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> insert(@Valid @RequestBody PessoaNewDTO pessoaNewDTO){
-        Pessoa obj = pessoaService.fromDTO(pessoaNewDTO);
-        obj = pessoaService.insert(obj);
+    public ResponseEntity<Void> insert(@Valid @RequestBody AlunoNewDTO alunoNewDTO){
+        Aluno obj = alunoService.fromDTO(alunoNewDTO);
+        obj = alunoService.insert(obj);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
